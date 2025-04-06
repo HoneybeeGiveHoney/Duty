@@ -1,0 +1,52 @@
+- type: entity
+  name: OmniSuit
+  description: omnisuit-description
+  id: ClothingHardsuitOmniSuit
+  parent: BaseItem
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - outerClothing
+    sprite: _Duty/Clothing/OuterClothing/Hardsuits/OmniSuit.rsi
+    layers:
+      - state: equipped-OUTERCLOTHING
+  - type: Sprite
+    sprite: _Duty/Clothing/OuterClothing/Hardsuits/OmniSuit.rsi
+    layers:
+      - state: icon
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHyper
+        whitelist:
+          tags:
+            - PowerCell
+            - PowerCellSmall
+  - type: EnergyDomeGenerator
+    damageEnergyDraw: 5
+    domePrototype: EnergyDomeSmallBlue
+  - type: PowerCellDraw
+    drawRate: 0
+    useRate: 0
+  - type: UseDelay
+    delay: 10.0
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.3
+        Piercing: 0.3
+        Caustic: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 0.90
+    sprintModifier: 0.90
+  - type: HeldSpeedModifier
