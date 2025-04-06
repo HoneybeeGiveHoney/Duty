@@ -1,0 +1,35 @@
+- type: entity
+  name: Energo-wings
+  parent:
+  - ClothingOuterBase
+  id: V01Wings
+  description: Helps machine fly in space, and run a little faster.
+  components:
+  - type: Item
+    size: Huge
+  - type: Clothing
+    sprite: _Duty/Clothing/OuterClothing/Hardsuits/V01Wings.rsi
+    slots:
+    - outerClothing
+  - type: ClothingSpeedModifier
+    walkModifier: 1.1
+    sprintModifier: 1.3
+  - type: HeldSpeedModifier
+  - type: Unremoveable
+    deleteOnDrop: true
+  - type: MovementSpeedModifier
+    weightlessAcceleration: 1
+    weightlessFriction: 0.1
+    weightlessModifier: 1.1
+  - type: CanMoveInAir
+  - type: InputMover
+    toParent: true
+  - type: Appearance
+  - type: GasTank
+    outputPressure: 0
+    air:
+      volume: 5
+      temperature: 400
+      tankLowPressure: 30.0
+  - type: Jetpack
+    moleUsage: 0

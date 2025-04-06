@@ -1,0 +1,26 @@
+- type: entity
+  parent: [ ClothingBackpack, BaseCentcommContraband ]
+  id: ClothingBackpackBaul
+  name: "баул"
+  description: "походная сумка, сотканая из большого количества ткани. Довольно тяжёлая, замедляет вас довольно сильно"
+  components:
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.6
+  - type: Sprite
+    sprite: _Duty\Clothing\Back\Backpacks\baul.rsi
+  - type: Item
+    pickupDelay: 5
+  - type: MultiHandedItem
+  - type: Storage
+    grid:
+    - 0,0,9,7
+  - type: HeldSpeedModifier
+
+- type: latheRecipe
+  id: ClothingBackpackBaulRecipe
+  result: ClothingBackpackBaul
+  completetime: 20
+  materials:
+    Cloth: 6000
+    Durathread: 500

@@ -1,0 +1,21 @@
+- type: entity
+  parent: BaseDice
+  id: CoinDice
+  name: a coin
+  description: Ancient random number generator, and money.
+  components:
+  - type: Dice
+    sides: 2
+    currentValue: 2
+  - type: Sprite
+    state: coin_2
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Duty/coin_land.ogg
+      params:
+        volume: 6
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Duty/coin_land.ogg
+      params:
+        volume: 6

@@ -1,0 +1,29 @@
+- type: entity
+  parent: BasePlushie
+  id: PlushieTrumbo
+  name: plushie trumbo
+  description: he smells like rice!
+  components:
+  - type: Sprite
+    sprite: _Duty/Entities/Objects/Fun/trumbo_plushie.rsi
+    state: icon
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Duty/Toys/thrumbo_moo.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Duty/Toys/thrumbo_moo.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Duty/Toys/thrumbo_moo.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Duty/Toys/thrumbo_moo.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/_Duty/Toys/thrumbo_moo.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/_Duty/Toys/thrumbo_moo.ogg

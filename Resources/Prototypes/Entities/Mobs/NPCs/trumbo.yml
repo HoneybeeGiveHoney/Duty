@@ -1,0 +1,78 @@
+- type: entity
+  name:  trumbo
+  parent: [SimpleMobBase, StripableInventoryBase, MobCombat]
+  id: MobTrumbo
+  description: a great monster capable of crushing tribes! 
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: trumbo
+      sprite: Mobs/Animals/trumbo.rsi
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 1
+        density: 250
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Inventory
+    speciesId: pig
+    templateId: pet
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+    offspring:
+    - id: MobTrumbo
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: trumbo
+      Critical:
+        Base: crit
+      Dead:
+        Base: dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 16
+  - type: Grammar
+    attributes:
+      gender: epicene
+  - type: InteractionPopup
+    successChance: 0.7
+    interactSuccessString: petting-success-pig
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/thrumbo_moo.ogg
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-organic
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: RuminantCompound
+  - type: MeleeWeapon
+    attackRate: 0.6
+    hidden: true
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 30
+    animation: WeaponArcBite
+    damage:
+      types:
+        Blunt: 5
+        Piercing: 40
+  - type: CombatMode
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      300: Dead

@@ -1,0 +1,23 @@
+
+- type: entity
+  name: executioner
+  suffix: red orden
+  parent: [ BaseSword, BaseMajorContraband ]
+  id: RedOrdenSabre
+  description: red legion sword, make you enemy fall down!
+  components:
+  - type: Sprite
+    sprite: _Duty/Entities/Objects/Weapons/Melee/RLsword.rsi
+  - type: MeleeWeapon
+    attackRate: 0.75
+    damage:
+      types:
+        Slash: 20
+        Heat: 20
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: StaminaDamageOnHit
+    damage: 35
+  - type: Item
+    sprite: _Duty/Entities/Objects/Weapons/Melee/RLsword.rsi
+  - type: DisarmMalus
