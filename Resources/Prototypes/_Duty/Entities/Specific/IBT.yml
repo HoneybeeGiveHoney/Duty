@@ -1,5 +1,6 @@
 - type: entity
   name: IBT
+  suffix: ИБТ
   id: IBT
   parent: [BaseLamp, BaseEngineeringContraband, ClothingBackpack]
   description: Multitool!

@@ -1,5 +1,6 @@
 - type: entity
   id: EnergyDomeSSG
+  suffix: ССДжи
   name: SSG
   description: SSG Shuttle Shield Generator
   parent: BaseMachine
