@@ -18,11 +18,11 @@
       - state: icon
   - type: ExaminableBattery
   - type: Battery
-    maxCharge: 30000         #<- max supply
+    maxCharge: 50000         #<- max supply
     startingCharge: 5000
   - type: PowerNetworkBattery
-    maxSupply: 30000
-    maxChargeRate: 200      #<- passive charging frow power net
+    maxSupply: 50000
+    maxChargeRate: 400      #<- passive charging frow power net
     supplyRampTolerance: 500
     supplyRampRate: 50
   - type: BatteryCharger
@@ -35,7 +35,7 @@
         nodeGroupID: MVPower
   - type: BatterySelfRecharger
     autoRecharge: false # true only when active
-    autoRechargeRate: -199  #<- discharge per second while active
+    autoRechargeRate: -399  #<- discharge per second while active
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
@@ -61,7 +61,7 @@
     - Off
   - type: EnergyDomeGenerator
     enabled: False
-    damageEnergyDraw: 225
+    damageEnergyDraw: 100
     domePrototype: EnergyDomeShuttleSize
     canDeviceNetworkUse: true
 
@@ -77,15 +77,15 @@
       color: "#8da7aa"
   - type: PointLight
     enabled: true
-    radius: 30
+    radius: 15
     power: 20
-    color: "#9fa5a5"
+    color: "#b7ffff"
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 8
+          radius: 12
         density: 0
         mask:
         - None
