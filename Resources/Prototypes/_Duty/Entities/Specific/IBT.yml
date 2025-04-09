@@ -1,0 +1,49 @@
+- type: entity
+  name: IBT
+  id: IBT
+  parent: [BaseLamp, BaseEngineeringContraband, ClothingBackpack]
+  description: Multitool!
+  components:
+  - type: Sprite
+    sprite: _Duty/Entities/Objects/Specific/IBT.rsi
+    layers:
+      - state: lamp
+        map: [ "base" ]
+      - state: lamp-on
+        shader: unshaded
+        visible: false
+        map: [ "light" ]
+  - type: Item
+    sprite: _Duty/Entities/Objects/Specific/IBT.rsi
+  - type: MultiHandedItem
+  - type: HeldSpeedModifier
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.9
+  - type: Storage
+    grid:
+    - 0,0,8,6
+  - type: PointLight
+    enabled: false
+    radius: 15
+    energy: 3
+    netsync: false
+  - type: MeleeWeapon
+    attackRate: 0.3
+    damage:
+      types:
+        Structural: 200
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - none
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+
+
+- type: latheRecipe
+  id: IBT
+  result: IBT
+  materials:
+    Steel: 1500
+    Plastic: 1000

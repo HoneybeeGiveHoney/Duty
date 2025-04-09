@@ -120,6 +120,7 @@
     staticRecipes:
       - Wirecutter
       - Igniter
+      - IBT
       - Signaller
       - Screwdriver
       - Welder
