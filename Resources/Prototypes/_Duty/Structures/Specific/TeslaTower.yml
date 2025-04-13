@@ -1,0 +1,16 @@
+- type: entity
+  id: MachineTeslaTower
+  suffix: тесла
+  name: Tesla Tower
+  description:
+  parent: BaseMachine
+  components:
+  - type: LightningArcShooter
+    arcDepth: 2
+    maxLightningArc: 10
+    shootMinInterval: 3
+    shootMaxInterval: 6
+    shootRange: 8
+    lightningPrototype: Lightning
+  - type: Sprite
+    sprite: _Duty/Structures/TeslaTower.rsi
