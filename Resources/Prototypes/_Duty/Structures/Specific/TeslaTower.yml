@@ -4,6 +4,8 @@
   name: Tesla Tower
   description:
   parent: BaseMachine
+  placement:
+    mode: SnapgridCenter
   components:
   - type: LightningArcShooter
     arcDepth: 2
