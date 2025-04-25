@@ -26,15 +26,15 @@
     - type: Physics
     - type: Fixtures
       fixtures:
-        fix1:
-          shape:
-            !type:PhysShapeCircle
-            radius: 0.4
-            density: 80
-            mask:
-            - MobMask
-            layer:
-            - MobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.5
+        density: 130
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
     - type: MobState
     - type: MobThresholds
       thresholds:
@@ -53,13 +53,13 @@
           Base: dead
     - type: MeleeWeapon
       altDisarm: false
-      angle: 0
+      angle: 90
       animation: WeaponArcFist
       soundHit:
         path: /Audio/Effects/metal_slam2.ogg
       damage:
         types:
-          Blunt: 30
+          Blunt: 300
     - type: Tag
       tags:
         - DoorBumpOpener
@@ -88,3 +88,14 @@
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: alive
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.5
+        density: 130
+        mask:
+        - MobMask
+        layer:
+        - MobLayer

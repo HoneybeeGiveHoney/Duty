@@ -16,3 +16,4 @@
     lightningPrototype: Lightning
   - type: Sprite
     sprite: _Duty/Structures/TeslaTower.rsi
+    state: icon
