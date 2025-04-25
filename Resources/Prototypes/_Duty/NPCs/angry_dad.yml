@@ -1,0 +1,90 @@
+- type: entity
+  name: dad
+  id: BaseMobAngrydad
+  parent: [ SimpleSpaceMobBase, MobCombat ]
+  description: Daddy?
+  abstract: true
+  components:
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      rootTask:
+        task: SimpleHostileCompound
+      blackboard:
+        NavSmash: !type:Bool
+          true
+    - type: NpcFactionMember
+      factions:
+      - SimpleHostile
+    - type: Sprite
+      drawdepth: Mobs
+      sprite: _Duty/Mobs/Angry_dad.rsi
+      layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+    - type: CombatMode
+    - type: Physics
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.4
+            density: 80
+            mask:
+            - MobMask
+            layer:
+            - MobLayer
+    - type: MobState
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        100: Dead
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 2.5
+      baseSprintSpeed: 2
+    - type: Stamina
+      critThreshold: 100
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: alive
+        Dead:
+          Base: dead
+    - type: MeleeWeapon
+      altDisarm: false
+      angle: 0
+      animation: WeaponArcFist
+      soundHit:
+        path: /Audio/Effects/metal_slam2.ogg
+      damage:
+        types:
+          Blunt: 30
+    - type: Tag
+      tags:
+        - DoorBumpOpener
+#    - type: ReplacementAccent
+#      accent: genericAggressive
+    - type: LanguageSpeaker
+      currentLanguage: TauCetiBasic
+    - type: LanguageKnowledge #backmen: languages
+      speaks:
+      - TauCetiBasic
+      understands:
+      - TauCetiBasic
+    - type: NightVision
+      isToggle: true
+      color: "#fd0000"
+    # start-backmen: surgery
+    - type: Body
+      prototype: Monkey
+      requiredLegs: 2
+
+- type: entity
+  parent: BaseMobAngrydad
+  id: MobDad
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive

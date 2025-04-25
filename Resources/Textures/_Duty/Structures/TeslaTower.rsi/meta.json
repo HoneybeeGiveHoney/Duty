@@ -4,11 +4,23 @@
   "copyright": "original sprite",
   "size": {
     "x": 32,
-    "y": 64
+    "y": 32
   },
   "states": [
     {
-      "name": "tesla"
+      "name": "icon",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
     }
   ]
 }
