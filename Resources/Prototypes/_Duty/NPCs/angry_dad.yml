@@ -59,7 +59,7 @@
         path: /Audio/Effects/metal_slam2.ogg
       damage:
         types:
-          Blunt: 300
+          Blunt: 15
     - type: Tag
       tags:
         - DoorBumpOpener
@@ -75,9 +75,8 @@
     - type: NightVision
       isToggle: true
       color: "#fd0000"
-    # start-backmen: surgery
     - type: Body
-      prototype: Monkey
+      prototype: Human
       requiredLegs: 2
 
 - type: entity
