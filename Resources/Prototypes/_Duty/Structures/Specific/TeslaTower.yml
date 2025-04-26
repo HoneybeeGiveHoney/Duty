@@ -9,10 +9,10 @@
   components:
   - type: LightningArcShooter
     arcDepth: 2
-    maxLightningArc: 10
-    shootMinInterval: 3
-    shootMaxInterval: 6
-    shootRange: 8
+    maxLightningArc: 4
+    shootMinInterval: 1
+    shootMaxInterval: 2
+    shootRange: 5
     lightningPrototype: Lightning
   - type: Sprite
     sprite: _Duty/Structures/TeslaTower.rsi
