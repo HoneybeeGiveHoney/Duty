@@ -1,0 +1,16 @@
+- type: constructionGraph
+  id: SteelBake
+  start: start
+  graph:
+
+  - node: start
+    edges:
+    - to: Done
+      completed:
+      - !type:PlaySound
+        sound: /Audio/Effects/sizzle.ogg
+      steps:
+      - minTemperature: 1584
+
+  - node: Done
+    entity: FoodMeatCooked

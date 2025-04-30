@@ -1,0 +1,18 @@
+- type: emote
+  id: CaliforniaDance
+  name: танец одного из штатов америки
+  category: Hands
+  icon: _Duty/Emotes/CaliforniaDance.png
+  whitelist:
+    components:
+    - Hands
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: [Танцует танец Калифорнии]
+  chatTriggers:
+    - Танцует калифорнию
+    - Танцует калифорния герлс
+    - Танцует California girls
+    - Танцует California
+    - california girls

@@ -1,13 +1,22 @@
 - type: soundCollection
   id: MaleLaugh
   files:
-    - /Audio/Voice/Human/manlaugh1.ogg
-    - /Audio/Voice/Human/manlaugh2.ogg
+    - /Audio/_Duty/Emotes/Pyrolaugh.ogg
+    - /Audio/_Duty/Emotes/Scoutlaugh.ogg
+    - /Audio/_Duty/Emotes/Sniperlaugh.ogg
+    - /Audio/_Duty/Emotes/Spylaugh.ogg
+    - /Audio/_Duty/Emotes/Mediclaugh.ogg
+    - /Audio/_Duty/Emotes/Engineerlaugh.ogg
 
 - type: soundCollection
   id: FemaleLaugh
   files:
-    - /Audio/Voice/Human/womanlaugh.ogg
+    - /Audio/_Duty/Emotes/Pyrolaugh.ogg
+    - /Audio/_Duty/Emotes/Scoutlaugh.ogg
+    - /Audio/_Duty/Emotes/Sniperlaugh.ogg
+    - /Audio/_Duty/Emotes/Spylaugh.ogg
+    - /Audio/_Duty/Emotes/Mediclaugh.ogg
+    - /Audio/_Duty/Emotes/Engineerlaugh.ogg
 
 - type: soundCollection
   id: MaleCough

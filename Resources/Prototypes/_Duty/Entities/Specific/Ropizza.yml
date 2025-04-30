@@ -1,0 +1,24 @@
+- type: entity
+  parent: BaseHealingItem
+  id: RoPizza
+  name: healing Pizza
+  description: healing pizza
+  components:
+  - type: Sprite
+    sprite: _Duty/Entities/Objects/Specific/RoPizza.rsi
+    state: icon
+  - type: Healing
+    damageContainers:
+    - Biological
+    damage:
+      groups:
+        Brute: -20
+        Burn: -20
+        Toxin: -20
+    bloodlossModifier: -10
+    delay: 1
+    selfHealPenaltyMultiplier: 0
+    healingBeginSound:
+      path: "/Audio/_Duty/Effects/PizzaHealing.ogg"
+    healingEndSound:
+      path: "/Audio/_Duty/Effects/PizzaHealing.ogg"

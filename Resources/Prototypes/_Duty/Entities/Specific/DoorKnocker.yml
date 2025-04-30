@@ -1,0 +1,39 @@
+- type: entity
+  name: Door Knocker
+  parent: BaseItem
+  suffix: Дверной таран
+  id: DoorKnocker
+  description: knock knock!
+  components:
+  - type: Sprite
+    sprite: _Duty/Entities/Objects/Specific/DoorKnocker.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 0.2
+    damage:
+      types:
+        Blunt: 30
+        Structural: 600
+    animation: WeaponArcThrust
+    angle: 0
+    soundHit:
+      path: /Audio/_Duty/Effects/Doorknocker_hit.ogg
+    soundNoDamage:
+      path: /Audio/_Duty/Effects/Doorknocker_miss.ogg
+    swingSound:
+      path: /Audio/_Duty/Effects/Doorknocker_miss.ogg
+  - type: Item
+    size: Ginormous
+  - type: MultiHandedItem
+  - type: HeldSpeedModifier
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.7
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Duty/Effects/Doorknocker_fall.ogg
+      params:
+        volume: 2
+  - type: EmitSoundOnCollide
+    sound:
+      collection: MetalThud

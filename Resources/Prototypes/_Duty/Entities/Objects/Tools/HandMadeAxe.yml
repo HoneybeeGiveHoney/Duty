@@ -1,0 +1,55 @@
+- type: entity
+  name: Hand Made axe
+  parent: BaseItem
+  id: ToolHandMadeAxe
+  description: HandMade axe!
+  components:
+  - type: Sprite
+    sprite: _Duty/Entities/Objects/Tools/HandMadeAxe.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: 135
+    swingLeft: true
+    damage:
+      types:
+        Slash: 5
+        Piercing: 2.5
+  - type: Item
+    sprite: _Duty/Entities/Objects/Tools/HandMadeAxe.rsi
+  - type: BoneSaw # Shitmed
+    speed: 0.35
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
+  - type: Construction
+    graph: GraphHandMadeAxe
+    node: done
+
+- type: constructionGraph
+  id: GraphHandMadeAxe
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: done
+      steps:
+      - material: SteelOre
+        amount: 3
+      - material: WoodPlank
+        amount: 2
+      doAfter: 5
+  - node: done
+    entity: ToolHandMadeAxe
+
+- type: construction
+  name: самодельный топор
+  id: HandMadeAxe
+  graph: GraphHandMadeAxe
+  startNode: start
+  targetNode: done
+  category: construction-category-tools
+  objectType: Item
+  description: топор, сделанный руками.
+  icon:
+    sprite: _Duty/Entities/Objects/Tools/HandMadeAxe.rsi
+    state: icon

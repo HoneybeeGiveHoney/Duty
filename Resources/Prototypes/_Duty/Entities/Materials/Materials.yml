@@ -1,0 +1,75 @@
+# железная пыль, крошиться молотком, после чего смешать с углём, создаёться стальная пыль, её в печь.
+# (накодить печь, все виды пыли и крафты)
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: MaterialBaseDuty
+  description: A raw material.
+  components:
+  - type: Sprite
+    sprite: _Duty/Entity/Objects/Materials.rsi
+  - type: Item
+    sprite: _Duty/Entity/Objects/Materials.rsi
+    size: Normal
+  - type: Tag
+    tags:
+      - RawMaterial
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: MaterialBaseDuty
+  id: MaterialIronDust
+  name: Iron Dust
+  description: just some dust, turn it into steel!
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: _Duty/Entities/Objects/Materials/IronDust.rsi
+    layers:
+    - state: IronDust_3
+  - type: Item
+    sprite: _Duty/Entities/Objects/Materials/IronDust.rsi
+    size: Normal
+  - type: Appearance
+  - type: Stack
+    stackType: IronDust
+    count: 30
+    layerStates:
+    - IronDust
+    - IronDust_2
+    - IronDust_3
+  - type: StackPrice
+    price: 150
+
+- type: entity
+  parent: MaterialIronDust
+  id: IronDust1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: stack
+  id: IronDust1
+  name: Iron Dust
+  icon: { sprite: _Duty/Entities/Objects/Materials/IronDust.rsi, state: IronDust }
+  spawn: MaterialIronDust
+  maxCount: 30
+
+- type: stack
+  id: IronDust
+  name: Iron Dust
+  maxCount: 30
+  spawn: MaterialIronDust # Добавлено поле spawn
+  icon:
+    sprite: _Duty/Entities/Objects/Materials/IronDust.rsi
+    state: IronDust

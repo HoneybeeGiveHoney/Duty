@@ -9,6 +9,12 @@
   "states": [
     {
       "name": "IronDust"
+    },
+    {
+      "name": "IronDust_2"
+    },
+    {
+      "name": "IronDust_3"
     }
   ]
 }

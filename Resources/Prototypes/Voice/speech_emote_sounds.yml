@@ -256,6 +256,7 @@
     DefaultDeathgasp:
       collection: DeathGasp
 
+
 - type: emoteSounds
   id: UnisexDwarf
   sounds:
@@ -293,6 +294,7 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+
   params:
     variation: 0.125
     pitch: 0.75
@@ -410,6 +412,8 @@
         volume: -6
     Salute:
       collection: Salutes
+    CaliforniaDance:
+        path: /Audio/_Duty/Emotes/CaliforniaGirlsEmote.ogg
 
 - type: emoteSounds
   id: DionaBodyEmotes
@@ -424,7 +428,7 @@
       path: /Audio/Voice/Diona/diona_salute.ogg
       params:
        volume: -5
-       
+
 - type: emoteSounds
   id: ReptilianBodyEmotes
   sounds:

@@ -34,6 +34,7 @@
     damage:
       types:
         Structural: 200
+        Blunt: 15
   - type: Clothing
     quickEquip: false
     slots:
