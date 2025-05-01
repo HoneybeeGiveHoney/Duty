@@ -23,19 +23,25 @@
     edges:
     - to: done
       steps:
-      - tool: Shovel
-      doAfter: 10
+      - material: SpaceQuartz1
+        amount: 3
   - node: done
     entity: hydroponicsSoil
 
 - type: construction
-  name: Выкопать землю
+  name: Минеральная почва
   id: SoilDig
   graph: GraphSoilDig
   startNode: start
   targetNode: done
   category: construction-category-structures
-  description: Выкопайте землю лопатой!. (Рецепт может быть использован только на планете!!!)
+  description: Рецепт почвы! Да, вам нужен кварц (не знаю, вроде кварц кремнезём, КОРОЧЕ Я НЕ ЗНАЮ КАК ЭТО РАБОТАЕТ)
   icon:
     sprite: Structures/Hydroponics/misc.rsi
     state: soil
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
