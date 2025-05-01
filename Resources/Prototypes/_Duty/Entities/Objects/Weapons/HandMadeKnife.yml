@@ -1,0 +1,58 @@
+- type: entity
+  name: Hand Made knife
+  parent: BaseKnife
+  id: MeleeHandMadeKnife
+  description: Pew!
+  components:
+  - type: Sprite
+    sprite: _Duty/Entities/Objects/Weapons/Melee/HandMadeKnife.rsi
+    state: icon
+  - type: MeleeWeapon
+    autoAttack: true
+    wideAnimationRotation: -135
+    attackRate: 3
+    damage:
+      types:
+        Slash: 5
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    ignoreResistances: true
+    damage:
+      types:
+        Slash: 10
+  - type: Item
+    sprite: _Duty/Entities/Objects/Weapons/Melee/HandMadeKnife.rsi
+  - type: Construction
+    graph: GraphHandMadeknife
+    node: done
+
+- type: constructionGraph
+  id: GraphHandMadeknife
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: done
+      steps:
+      - material: SteelOre
+        amount: 1
+      - material: WoodPlank
+        amount: 1
+      doAfter: 5
+  - node: done
+    entity: MeleeHandMadeKnife
+
+- type: construction
+  name: самодельный нож
+  id: HandMadeknife
+  graph: GraphHandMadeknife
+  startNode: start
+  targetNode: done
+  category: construction-category-tools
+  objectType: Item
+  description: Очень лёгкий, примитивный нож.
+  icon:
+    sprite: _Duty/Entities/Objects/Weapons/Melee/HandMadeKnife.rsi
+    state: icon

@@ -1,0 +1,67 @@
+- type: entity
+  name: Hand Made pickaxe
+  parent: BaseItem
+  id: ToolHandMadePickaxe
+  description: kick rocks with... rock on a stick?
+  components:
+  - type: Sprite
+    sprite: _Duty/Entities/Objects/Tools/HandMadePickAxe.rsi
+    state: icon
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: 1.5
+    wideAnimationRotation: -135
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+      params:
+        volume: -3
+    damage:
+      groups:
+        Brute: 3
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      groups:
+        Brute: 5
+      types:
+        Structural: 15
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,2,0
+    - 1,1,1,2
+    sprite: _Duty/Entities/Objects/Tools/HandMadePickAxe.rsi
+    storedRotation: -45
+  - type: UseDelay
+  - type: Construction
+    graph: GraphHandMadePickaxe
+    node: done
+
+- type: constructionGraph
+  id: GraphHandMadePickaxe
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: done
+      steps:
+      - material: SteelOre
+        amount: 5
+      - material: WoodPlank
+        amount: 5
+        doAfter: 5
+  - node: done
+    entity: ToolHandMadePickaxe
+
+- type: construction
+  name: самодельная кирка
+  id: HandMadePickaxeConstruction
+  graph: GraphHandMadePickaxe
+  startNode: start
+  targetNode: done
+  category: construction-category-tools
+  objectType: Item
+  description: Копай камни... камнем на палке?
+  icon:
+    sprite: _Duty/Entities/Objects/Tools/HandMadePickAxe.rsi
+    state: icon
