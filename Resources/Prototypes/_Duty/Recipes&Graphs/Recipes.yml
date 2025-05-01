@@ -14,3 +14,28 @@
 
   - node: Done
     entity: FoodMeatCooked
+
+- type: constructionGraph
+  id: GraphSoilDig
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: done
+      steps:
+      - tool: Shovel
+      doAfter: 10
+  - node: done
+    entity: hydroponicsSoil
+
+- type: construction
+  name: Выкопать землю
+  id: SoilDig
+  graph: GraphSoilDig
+  startNode: start
+  targetNode: done
+  category: construction-category-structures
+  description: Выкопайте землю лопатой!. (Рецепт может быть использован только на планете!!!)
+  icon:
+    sprite: Structures/Hydroponics/misc.rsi
+    state: soil
