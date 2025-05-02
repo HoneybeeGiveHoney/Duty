@@ -37,7 +37,7 @@
         amount: 3
       - material: WoodPlank
         amount: 2
-      doAfter: 5
+        doAfter: 15
   - node: done
     entity: ToolHandMadeAxe
 

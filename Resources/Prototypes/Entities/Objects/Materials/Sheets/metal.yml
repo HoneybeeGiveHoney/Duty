@@ -85,7 +85,7 @@
 - type: entity
   parent: SheetSteel
   id: SheetSteel1
-  name: steel
+  name: Steel Sheet
   suffix: Single
   components:
   - type: Sprite
@@ -93,6 +93,9 @@
   - type: Stack
     stackType: Steel
     count: 1
+  - type: Construction
+    graph: SteelBake
+    node: melted
 
 - type: entity
   parent: SheetSteel

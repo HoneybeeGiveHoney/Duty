@@ -40,7 +40,7 @@
         amount: 1
       - material: WoodPlank
         amount: 1
-      doAfter: 5
+        doAfter: 5
   - node: done
     entity: MeleeHandMadeKnife
 

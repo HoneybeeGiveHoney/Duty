@@ -61,7 +61,7 @@
 - type: stack
   id: IronDust1
   name: Iron Dust
-  icon: { sprite: _Duty/Entities/Objects/Materials/IronDust.rsi, state: IronDust }
+  icon: { sprite: _Duty/Entities/Objects/Materials/IronDust.rsi, state: IronDust_3 }
   spawn: MaterialIronDust
   maxCount: 30
 
@@ -69,7 +69,81 @@
   id: IronDust
   name: Iron Dust
   maxCount: 30
-  spawn: MaterialIronDust # Добавлено поле spawn
+  spawn: MaterialIronDust
   icon:
     sprite: _Duty/Entities/Objects/Materials/IronDust.rsi
-    state: IronDust
+    state: IronDust_3
+
+ # стальная пыль
+
+- type: entity
+  parent: MaterialBaseDuty
+  id: MaterialSteelDust
+  name: Steel Dust
+  description: Just some dust, turn it into steel!
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: _Duty/Entities/Objects/Materials/SteelDust.rsi
+    layers:
+    - state: SteelDust_3
+  - type: Item
+    sprite: _Duty/Entities/Objects/Materials/SteelDust.rsi
+    size: Normal
+  - type: Appearance
+  - type: Stack
+    stackType: SteelDust
+    count: 30
+    layerStates:
+    - SteelDust
+    - SteelDust_2
+    - SteelDust_3
+  - type: StackPrice
+    price: 150
+  - type: Construction
+    graph: GraphMixingSteel
+    node: done
+
+
+- type: entity
+  parent: MaterialSteelDust
+  id: SteelDust1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: stack
+  id: SteelDust1
+  name: SteelDust
+  icon: { sprite: _Duty/Entities/Objects/Materials/SteelDust.rsi, state: SteelDust }
+  spawn: MaterialSteelDust
+  maxCount: 30
+
+- type: stack
+  id: SteelDust
+  name: SteelDust
+  maxCount: 30
+  spawn: MaterialSteelDust
+  icon:
+    sprite: _Duty/Entities/Objects/Materials/SteelDust.rsi
+    state: SteelDust_3
+
+- type: entity
+  parent: BaseItem
+  id: MaterialSmelteringForm
+  name: Steel Smeltering pack
+  description: Shove it into a oven!
+  components:
+  - type: Sprite
+    sprite: _Duty/Entities/Objects/Materials/SteelSmeltering.rsi
+    state: icon
+  - type: InternalTemperature
+    conductivity: 1
+    thickness: 0.5
+    area: 0.6
+  - type: Construction
+    graph: SteelBake
+    node: start
+  - type: Temperature
+    currentTemperature: 240

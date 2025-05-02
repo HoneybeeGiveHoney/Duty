@@ -8,14 +8,13 @@
   },
   "states": [
     {
-      "name": "alive",
-      "directions": 4
+      "name": "SteelDust"
     },
     {
-        "name": "icon"
+      "name": "SteelDust_2"
     },
     {
-        "name": "dead"
+      "name": "SteelDust_3"
     }
   ]
 }

@@ -2,18 +2,21 @@
   id: SteelBake
   start: start
   graph:
-
   - node: start
     edges:
-    - to: Done
-      completed:
-      - !type:PlaySound
-        sound: /Audio/Effects/sizzle.ogg
+    - to: melted
       steps:
       - minTemperature: 1584
+    - to: crafting
+      steps:
+      - material: SteelDust
+        amount: 1
+        doAfter: 5
+  - node: melted
+    entity: SheetSteel
+  - node: crafting
+    entity: MaterialSmelteringForm
 
-  - node: Done
-    entity: FoodMeatCooked
 
 - type: constructionGraph
   id: GraphSoilDig
@@ -23,8 +26,9 @@
     edges:
     - to: done
       steps:
-      - material: SpaceQuartz1
+      - material: SpaceQuartz
         amount: 3
+        DoAfter: 15
   - node: done
     entity: hydroponicsSoil
 
@@ -45,3 +49,109 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+
+
+- type: constructionGraph
+  id: GraphEarthOven
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: done
+      steps:
+      - material: SpaceQuartz
+        amount: 5
+      - material: SteelOre
+        amount: 20
+      - material: WoodPlank
+        amount: 30
+        doAfter: 20
+  - node: done
+    entity: StructureEarthOven
+
+- type: construction
+  name: Примитивная печь
+  id: ConstructEarthOven
+  graph: GraphEarthOven
+  startNode: start
+  targetNode: done
+  category: construction-category-structures
+  description: Печка работающая на... Магии?
+  icon:
+    sprite: _Duty/Structures/EarthOven.rsi
+    state: icon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: GraphMixingSteel
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: done
+      steps:
+      - material: IronDust
+        amount: 2
+      - material: Coal
+        amount: 3
+  - node: done
+    entity: SteelDust1
+
+- type: construction
+  name: Порошковый рецепт стали
+  id: ConstructionMixingSteel
+  graph: GraphMixingSteel
+  startNode: start
+  targetNode: done
+  category: construction-category-tools
+  objectType: Item
+  description: Смешайте уголь и железо для получения стального порошка.
+  icon:
+    sprite: _Duty/Entities/Objects/Materials/SteelDust.rsi
+    state: SteelDust_3
+
+- type: constructionGraph
+  id: IronGrind
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: done
+      steps:
+      - material: SteelOre
+        amount: 1
+        doAfter: 5
+  - node: done
+    entity: IronDust1
+
+- type: construction
+  name: Измельчение железа
+  id: ConstructionIronGrind
+  graph: IronGrind
+  startNode: start
+  targetNode: done
+  category: construction-category-tools
+  objectType: Item
+  description: Измельчи железную руду в порошок... Руками?
+  icon:
+    sprite: _Duty/Entities/Objects/Materials/IronDust.rsi
+    state: IronDust_3
+
+- type: constructionGraph
+  id: GraphSmelteringForm
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: done
+      steps:
+      - material: SteelDust
+        amount: 1
+        doAfter: 3
+  - node: done
+    entity: MaterialSmelteringForm

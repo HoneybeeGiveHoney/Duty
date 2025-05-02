@@ -1,0 +1,46 @@
+- type: entity
+  parent: BaseHeaterMachine
+  id: StructureEarthOven
+  name: earth oven
+  description: An primitively made oven!
+  components:
+  - type: Sprite
+    sprite: _Duty/Structures/EarthOven.rsi
+    state: icon
+  - type: ItemPlacer
+    maxEntities: 4
+    whitelist:
+      components:
+      - Temperature
+  - type: PlaceableSurface
+  - type: EntityHeater
+    settingSound:
+      path: /Audio/Weapons/click.ogg
+      params:
+        volume: -6
+  - type: GenericVisualizer
+    visuals:
+      enum.EntityHeaterVisuals.Setting:
+        enum.EntityHeaterVisuals.Setting:
+          Off: { visible: false }
+          Low: { visible: true, state: low }
+          Medium: { visible: true, state: medium }
+          High: { visible: true, state: high }
+  - type: AlwaysHot
+  - type: AmbientSound
+    volume: -5
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/fireplace.ogg
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: "#FFC90C"
+  - type: ApcPowerReceiver
+    powerLoad: 0
+  - type: SolutionHeater
+    heatPerSecond: 400
+  - type: Appearance
+  - type: Construction
+    graph: GraphEarthOven
+    node: done
