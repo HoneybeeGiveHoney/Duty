@@ -7,16 +7,18 @@
     - to: melted
       steps:
       - minTemperature: 1584
-    - to: crafting
-      steps:
-      - material: SteelDust
-        amount: 1
-        doAfter: 5
-  - node: melted
-    entity: SheetSteel
-  - node: crafting
-    entity: MaterialSmelteringForm
 
+    - to: crafted
+      steps:
+      - material: IronDust
+        amount: 1
+      - material: Coal
+        amount: 2
+  - node: crafted
+    material: SteelDust1
+
+  - node: melted
+    entity: SheetSteel1
 
 - type: constructionGraph
   id: GraphSoilDig
@@ -87,27 +89,12 @@
   conditions:
     - !type:TileNotBlocked
 
-- type: constructionGraph
-  id: GraphMixingSteel
-  start: start
-  graph:
-  - node: start
-    edges:
-    - to: done
-      steps:
-      - material: IronDust
-        amount: 2
-      - material: Coal
-        amount: 3
-  - node: done
-    entity: SteelDust1
-
 - type: construction
   name: Порошковый рецепт стали
   id: ConstructionMixingSteel
-  graph: GraphMixingSteel
+  graph: SteelBake
   startNode: start
-  targetNode: done
+  targetNode: crafted
   category: construction-category-tools
   objectType: Item
   description: Смешайте уголь и железо для получения стального порошка.
@@ -141,17 +128,3 @@
   icon:
     sprite: _Duty/Entities/Objects/Materials/IronDust.rsi
     state: IronDust_3
-
-- type: constructionGraph
-  id: GraphSmelteringForm
-  start: start
-  graph:
-  - node: start
-    edges:
-    - to: done
-      steps:
-      - material: SteelDust
-        amount: 1
-        doAfter: 3
-  - node: done
-    entity: MaterialSmelteringForm

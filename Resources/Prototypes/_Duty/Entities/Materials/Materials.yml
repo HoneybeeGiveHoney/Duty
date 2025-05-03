@@ -29,13 +29,14 @@
   parent: MaterialBaseDuty
   id: MaterialIronDust
   name: Iron Dust
-  description: just some dust, turn it into steel!
+  description: Just some dust, turn it into steel!
   suffix: Full
   components:
   - type: Sprite
     sprite: _Duty/Entities/Objects/Materials/IronDust.rsi
     layers:
     - state: IronDust_3
+      map: [ "base" ]
   - type: Item
     sprite: _Duty/Entities/Objects/Materials/IronDust.rsi
     size: Normal
@@ -48,7 +49,10 @@
     - IronDust_2
     - IronDust_3
   - type: StackPrice
-    price: 150
+    price: 300
+  - type: Construction
+    graph: IronGrind
+    node: done
 
 - type: entity
   parent: MaterialIronDust
@@ -59,20 +63,11 @@
     count: 1
 
 - type: stack
-  id: IronDust1
-  name: Iron Dust
-  icon: { sprite: _Duty/Entities/Objects/Materials/IronDust.rsi, state: IronDust_3 }
-  spawn: MaterialIronDust
-  maxCount: 30
-
-- type: stack
   id: IronDust
   name: Iron Dust
+  icon: { sprite: _Duty/Entities/Objects/Materials/IronDust.rsi, state: IronDust_3 }
+  spawn: IronDust1
   maxCount: 30
-  spawn: MaterialIronDust
-  icon:
-    sprite: _Duty/Entities/Objects/Materials/IronDust.rsi
-    state: IronDust_3
 
  # стальная пыль
 
@@ -86,7 +81,8 @@
   - type: Sprite
     sprite: _Duty/Entities/Objects/Materials/SteelDust.rsi
     layers:
-    - state: SteelDust_3
+    - state: IronDust_3
+      map: [ "base" ]
   - type: Item
     sprite: _Duty/Entities/Objects/Materials/SteelDust.rsi
     size: Normal
@@ -101,9 +97,26 @@
   - type: StackPrice
     price: 150
   - type: Construction
-    graph: GraphMixingSteel
-    node: done
-
+    graph: SteelBake
+    node: melted
+  - type: InternalTemperature
+    conductivity: 1
+    thickness: 0.5
+    area: 1
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 1
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+  - type: AtmosExposed
+  - type: Temperature
+    currentTemperature: 180
 
 - type: entity
   parent: MaterialSteelDust
@@ -112,11 +125,14 @@
   components:
   - type: Stack
     count: 1
+  - type: Construction
+    graph: SteelBake
+    node: crafted
 
 - type: stack
   id: SteelDust1
   name: SteelDust
-  icon: { sprite: _Duty/Entities/Objects/Materials/SteelDust.rsi, state: SteelDust }
+  icon: { sprite: _Duty/Entities/Objects/Materials/SteelDust.rsi, state: SteelDust_3 }
   spawn: MaterialSteelDust
   maxCount: 30
 
@@ -128,22 +144,3 @@
   icon:
     sprite: _Duty/Entities/Objects/Materials/SteelDust.rsi
     state: SteelDust_3
-
-- type: entity
-  parent: BaseItem
-  id: MaterialSmelteringForm
-  name: Steel Smeltering pack
-  description: Shove it into a oven!
-  components:
-  - type: Sprite
-    sprite: _Duty/Entities/Objects/Materials/SteelSmeltering.rsi
-    state: icon
-  - type: InternalTemperature
-    conductivity: 1
-    thickness: 0.5
-    area: 0.6
-  - type: Construction
-    graph: SteelBake
-    node: start
-  - type: Temperature
-    currentTemperature: 240
